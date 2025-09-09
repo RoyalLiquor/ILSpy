@@ -1,3 +1,12 @@
+# GitHub Actions Installation Script
+# 
+# This script installs required tools and dependencies for GitHub Actions CI/CD workflows.
+# It's designed to be run in the GitHub Actions environment to set up the build environment.
+# 
+# Purpose: Prepare the CI environment with necessary build tools and dependencies
+# Usage: Called automatically by GitHub Actions workflows (.github/workflows/*.yml)
+# Requirements: PowerShell and appropriate permissions in the CI environment
+# 
 $ErrorActionPreference = "Stop"
 
 $baseCommit = "d779383cb85003d6dabeb976f0845631e07bf463";

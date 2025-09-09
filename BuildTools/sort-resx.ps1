@@ -1,3 +1,13 @@
+# Resource File Sorting Script
+# 
+# This script sorts XML elements in .resx (resource) files to ensure consistent ordering.
+# It helps maintain clean diffs and reduces merge conflicts in resource files.
+# 
+# Purpose: Automatically sort resource entries in .resx files across the solution
+# Usage: Run from repository root to sort all .resx files recursively
+# Requirements: PowerShell with .NET Framework XML support
+# Output: Modifies .resx files in-place with sorted entries
+# 
 $ErrorActionPreference = "Stop";
 
 [Reflection.Assembly]::LoadWithPartialName("System.Xml.Linq") | Out-Null
