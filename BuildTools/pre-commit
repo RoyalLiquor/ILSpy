@@ -1,5 +1,23 @@
 #!/bin/sh
 #
+# Git Pre-Commit Hook for Code Formatting
+# 
+# This script automatically formats C# code using dotnet-format before commits.
+# It ensures consistent code style across the ILSpy codebase by enforcing whitespace rules.
+# 
+# Setup Instructions:
+#   To enable this hook, copy/symlink this file to ".git/hooks/pre-commit":
+#   Windows: mklink .git\hooks\pre-commit ..\..\BuildTools\pre-commit
+#   Unix:    ln -s ../../BuildTools/pre-commit .git/hooks/pre-commit
+# 
+# Behavior:
+#   - Downloads and caches dotnet-format tool if not present
+#   - For full commits: Formats code and stages changes automatically
+#   - For partial commits: Only verifies formatting (fails if not formatted)
+#   - Manual mode: Run with --format flag to format without committing
+# 
+# Requirements: .NET SDK with dotnet tool support
+#
 # To enable this hook, copy/symlink this file to ".git/hooks/pre-commit".
 #  mklink .git\hooks\pre-commit ..\..\BuildTools\pre-commit
 

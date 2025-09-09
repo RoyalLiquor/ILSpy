@@ -3,6 +3,26 @@
     return 255;
 }
 
+# Assembly Version Information Update Script
+# 
+# This script automatically generates version numbers for ILSpy builds based on git history.
+# It creates semantic versions that include branch information and build numbers for CI/CD.
+# 
+# What it does:
+#   - Reads version template from DecompilerVersionInfo.template.cs
+#   - Calculates build number from git commit count since base commit
+#   - Generates version strings with branch/PR information for non-master builds
+#   - Sets ILSPY_VERSION_NUMBER environment variable for use in builds
+#   - Outputs version to ILSPY_VERSION file for CI artifacts
+# 
+# Branch naming logic:
+#   - master/release branches: No suffix (clean version)
+#   - Pull requests: Adds "-pr{number}" suffix
+#   - Feature branches: Adds "-{branch-name}" suffix
+# 
+# Prerequisites: Git must be available in PATH
+# Usage: Run from repository root, typically called by CI build scripts
+# 
 $ErrorActionPreference = "Stop"
 
 $baseCommit = "d779383cb85003d6dabeb976f0845631e07bf463";
