@@ -1,4 +1,15 @@
-﻿$ErrorActionPreference = "Stop";
+# Installation Package File List Generator
+# 
+# This script generates file lists for installer packages (.vsix, .msi) by examining
+# the contents of built artifacts and creating corresponding .filelist files.
+# These file lists are used during the packaging process for distribution.
+# 
+# Purpose: Automatically generate file lists for installer packages from build outputs
+# Usage: Run after building the solution to update file lists for packaging
+# Requirements: PowerShell, built artifacts must exist in bin\Debug\ directories
+# Output: Creates/updates .filelist files for packaging tools
+# 
+$ErrorActionPreference = "Stop";
 
 $Utf8NoBomEncoding = New-Object System.Text.UTF8Encoding $False
 
